@@ -117,8 +117,7 @@ a.link:hover{
 .header-menu ul {
     position: relative;
     top: 13px;
-} 
-
+}
 .clinical-heading {
     height:70px;
     text-align: center;
@@ -276,6 +275,7 @@ color:#fff;
 
 md-dialog{
     margin-top:150px;
+    width:80%;
 }
 /*md-bottom-sheet{
     top:40;
