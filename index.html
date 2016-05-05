@@ -48,7 +48,9 @@
                         </md-card-title-text>
                     </md-card-title>
                     <md-card-actions>
-                        <a href="" ng-controller="viewerController as ctrl" ng-click="ctrl.openControlPanel()"><img src="http://www.hopeteamaz.org/wp-content/uploads/2013/09/donate.png" style="padding-top: 15%;"></a>
+                        <a href="" ng-controller="viewerController as ctrl" ng-click="ctrl.openControlPanel()" hide-xs><img src="http://www.hopeteamaz.org/wp-content/uploads/2013/09/donate.png" style="padding-top: 15%;"></a>
+                        <a href="" ng-controller="DialogCtrl" ng-click="showDonate($event)" hide-gt-xs><img src="http://www.hopeteamaz.org/wp-content/uploads/2013/09/donate.png" style="padding-top: 15%;"></a>
+
                         <img src="http://www.hopeteamaz.org/wp-content/uploads/2013/09/apply_online_volunteer-v2.png" scale="0">
                     </md-card-actions>
                 </md-card>
