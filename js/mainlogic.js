@@ -245,12 +245,36 @@
         });
 
     };
-    $scope.showVideo = function (ev) {
+    $scope.showContact = function (ev) {
         var useFullScreen = ($mdMedia('gt-xs')) && $scope.customFullscreen;
 
         $mdDialog.show({
             controller: DialogController,
-            templateUrl: 'gallery.html',
+            templateUrl: 'contactmob.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: useFullScreen
+        })
+        .then(function (answer) {
+            $scope.status = 'You said the information was "' + answer + '".';
+        }, function () {
+            $scope.status = 'You cancelled the dialog.';
+        });
+
+        $scope.$watch(function () {
+            return $mdMedia('xs') || $mdMedia('sm');
+        }, function (wantsFullScreen) {
+            $scope.customFullscreen = (wantsFullScreen === true);
+        });
+
+    };
+    $scope.showDonate = function (ev) {
+        var useFullScreen = ($mdMedia('gt-xs')) && $scope.customFullscreen;
+
+        $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'donatemob.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
