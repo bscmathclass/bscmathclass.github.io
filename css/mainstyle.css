@@ -164,7 +164,7 @@ z-index:999;
 .suscribe-popup p.md-headline, .suscribe-popup p.md-subhead{
     padding-top:0px; 
     padding-bottom:0px;  
-    margin:0px;
+    /*margin:0px;*/
 }
 
 .suscribe-popup md-input-container{
@@ -359,4 +359,9 @@ border-radius: 0 5px 5px 0;
      margin:auto;
       width:50%;
           position: relative;
+}
+.md-transition-in form {
+   
+    font-size: 12px;
+
 }
