@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	</head>
 	<body>
 
@@ -117,15 +118,24 @@
 
 						<!-- Others -->
 							<article id="others" class="panel">
-								<header>
-									<h2>Entrance Exam Preperation</h2>
-									<p>---Click on the topic to download as pdf file:</p>
-								</header>
-								<p><a href="http://fi.ge.pgstatic.net/attachments/fe10a3544738472baf2931867a33b31c.pdf" style="text-decoration:none;color:green;" download>1.Quantative Aptitude.........(Tips & Tricks)</a></p>
-								<p><a href="http://booklearning3.tripod.com/501_Logic_Reas.pdf" style="text-decoration:none;color:orange;" download>2.Logical Reasoning .......(Questions & Answers)</a></p>
-								<p><a href="http://www.mathdb.org/basic_calculus/BasicCalculus.pdf" style="text-decoration:none;color:blue;" download>3.Calculas .......(ebook with solution)</a></p>
-								<p>Others content will be updated soon...</p>
+								<section class="row">
+									<div class="6u 12u$(mobile)">
+										<header>
+											<h2>Entrance Exam Preperation</h2>
+											<p>---Click on the topic to download as pdf file:</p>
+										</header>
+										<p><a href="http://fi.ge.pgstatic.net/attachments/fe10a3544738472baf2931867a33b31c.pdf" style="text-decoration:none;color:green;" download>1.Quantative Aptitude.........(Tips & Tricks)</a></p>
+										<p><a href="http://booklearning3.tripod.com/501_Logic_Reas.pdf" style="text-decoration:none;color:orange;" download>2.Logical Reasoning .......(Questions & Answers)</a></p>
+										<p><a href="http://www.mathdb.org/basic_calculus/BasicCalculus.pdf" style="text-decoration:none;color:blue;" download>3.Calculas .......(ebook with solution)</a></p>
+										<p>Others content will be updated soon...</p>
+									</div>
+									<div class="6u 12u$(mobile)">
+										<p><i class="fa fa-sun-o" aria-hidden="true" style="color:green;"></i>Temp in Pbh: <span style="color:red;">{{tp}}<sup>o</sup></span></p>
+										<img src="http://maps.googleapis.com/maps/api/staticmap?center=25.908769,81.989336&zoom=11&size=200x200&sensor=false">
+									</div>
+								</section>
 							</article>
+						
 							
 						<!-- Contact -->
 							<article id="contact" class="panel">
@@ -158,6 +168,18 @@
 			</div>
 
 		<!-- Scripts -->
+			<script>
+				var app = angular.module('myApp', []);
+				app.controller('myCtrl', function ($scope, $http) {
+					$http.get("http://api.openweathermap.org/data/2.5/weather?zip=230001&appid=6a8ce57dd5bc07656e6b02cc9702acc4").then(function (response) {
+						$scope.tmp = response.data.main.temp;
+						$scope.tp=$scope.tmp-273.15;
+						$scope.cord= response.data.coord;
+						$scope.wnd= response.data.wind;
+										
+					});
+				});
+			</script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/skel-viewport.min.js"></script>
